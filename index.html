@@ -1,249 +1,358 @@
-<!DOCTYPE html>  
-<html lang="ar" dir="rtl">  
-<head>  
-  <meta charset="UTF-8">  
-  <title>الدورة الرمضانية - الصفحة الرئيسية</title>  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <style>  
-    body {  
-      font-family: 'Arial', sans-serif;  
-      background: linear-gradient(to bottom right, #e3f2fd, #ffffff);  
-      color: #333;  
-      padding: 40px 20px;  
-      text-align: center;  
-    }  
-    h1 {  
-      font-size: 2.5rem;  
-      color: #0d47a1;  
-      margin-bottom: 20px;  
-    }  
-    .container {  
-      display: grid;  
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  
-      gap: 30px;  
-      max-width: 900px;  
-      margin: auto;  
-    }  
-    .card {  
-      background-color: white;  
-      border-radius: 15px;  
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);  
-      padding: 20px;  
-      transition: transform 0.3s;  
-      cursor: pointer;  
-      text-align: right;   
-      direction: rtl;   
-      user-select: none;   
-    }  
-    .card:hover {  
-      transform: translateY(-5px);  
-    }  
-    .card a {  
-      text-decoration: none;  
-      color: #1a237e;  
-      font-weight: bold;  
-      font-size: 1.2rem;  
-      display: inline-block;   
-      margin-bottom: 10px;   
-      cursor: pointer;   
-      user-select: text;   
-      direction: ltr;   
-      text-align: center;   
-    }  
-    .section-title {  
-      color: #1a237e;  
-      font-weight: bold;  
-      margin: 15px 0 8px;  
-      cursor: pointer;  
-      user-select: none;   
-      text-align: right;   
-      direction: rtl;   
-    }  
-    .content {  
-      text-align: right;  
-      direction: rtl;   
-      font-size: 0.95rem;  
-      margin-top: 10px;  
-      display: none;  
-      user-select: text;   
-    }  
-    table {  
-      width: 100%;  
-      border-collapse: collapse;  
-      margin-bottom: 10px;  
-    }  
-    th, td {  
-      border: 1px solid #ccc;  
-      padding: 8px 6px;  
-      text-align: center;  
-      font-size: 0.9rem;  
-    }  
-    th {  
-      background-color: #e3f2fd;  
-      color: #0d47a1;  
-    }  
-    ul {  
-      list-style: none;  
-      padding: 0;  
-      margin: 0;  
-      color: #444;  
-    }  
-    ul li {  
-      margin-bottom: 8px;  
-      text-align: right;  
-    }  
-    strong {  
-      color: #1a237e;  
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>البطولة - الصفحة الرئيسية</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom right, #e3f2fd, #ffffff);
+      color: #333;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #0d47a1;
+      margin-bottom: 20px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: transform 0.3s, background-color 0.3s;
+      cursor: pointer;
+      text-align: right;
+      direction: rtl;
+      user-select: none;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      background-color: #f5faff;
+    }
+    .card a {
+      text-decoration: none;
+      color: #1a237e;
+      font-weight: bold;
+      font-size: 1.2rem;
+      display: inline-block;
+      margin-bottom: 10px;
+      cursor: pointer;
+      user-select: text;
+      direction: ltr;
+      text-align: center;
+    }
+    .section-title {
+      color: #1a237e;
+      font-weight: bold;
+      margin: 15px 0 8px;
+      cursor: pointer;
+      user-select: none;
+      text-align: right;
+      direction: rtl;
+      position: relative;
+    }
+    .section-title::after {
+      content: '▼';
+      font-size: 0.8rem;
+      position: absolute;
+      left: 10px;
+      transition: transform 0.2s;
+    }
+    .section-title.open::after {
+      transform: rotate(-180deg);
+    }
+    .content {
+      text-align: right;
+      direction: rtl;
+      font-size: 0.95rem;
+      margin-top: 10px;
+      display: none;
+      animation: fadeIn 0.3s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px 6px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    th {
+      background-color: #e3f2fd;
+      color: #0d47a1;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      color: #444;
+    }
+    ul li {
+      margin-bottom: 8px;
+      text-align: right;
+    }
+    strong {
+      color: #1a237e;
     }
 
-    /* إضافات لخانة التسجيل وجروب الواتساب */
-    .register-group {  
-      user-select: none;  
-      text-align: center;  
-      direction: rtl;  
+    .register-group {
+      user-select: none;
+      text-align: center;
+      direction: rtl;
     }
-    .register-label {  
-      font-weight: bold;  
-      margin-bottom: 10px;  
-      font-size: 1.1rem;  
-      color: #0d47a1;  
-      text-align: center;  
-      direction: rtl;  
+    .register-label {
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+      color: #0d47a1;
+      text-align: center;
     }
-    .register-link {  
-      text-decoration: none;  
-      color: #1a237e;  
-      font-weight: bold;  
-      font-size: 1.2rem;  
-      display: inline-block;  
-      margin: 5px 0;  
-      cursor: pointer;  
-      user-select: text;  
-      direction: ltr;  
-      text-align: center;  
+    .register-link {
+      text-decoration: none;
+      color: #1a237e;
+      font-weight: bold;
+      font-size: 1.2rem;
+      display: inline-block;
+      margin: 5px 0;
+      cursor: pointer;
+      user-select: text;
+      direction: ltr;
+      text-align: center;
     }
-  </style>  
-</head>  
-<body>  
-  
-  <h1>🎉 أهلاً بكم في موقع الدورة الرمضانية لكرة القدم 🌙</h1>  
-  
-  <div class="container">  
-    <div class="card">  
-      <a href="رمضان2025.html">📅 بطولة رمضان 2025</a>  
-  
-      <div class="section-title" data-target="ranking">📊 ترتيب الفرق النهائي</div>  
-      <div class="content" id="ranking">  
-        <table>  
-          <thead>  
-            <tr>  
-              <th>الترتيب</th>  
-              <th>الفريق</th>  
-              <th>لعب</th>  
-              <th>فاز</th>  
-              <th>تعادل</th>  
-              <th>خسر</th>  
-              <th>الأهداف المسجلة</th>  
-              <th>الأهداف المستقبلة</th>  
-              <th>النقاط</th>  
-            </tr>  
-          </thead>  
-          <tbody>  
-            <tr><td>1</td><td>عبس</td><td>4</td><td>3</td><td>1</td><td>0</td><td>14</td><td>11</td><td>10</td></tr>  
-            <tr><td>2</td><td>الأركان</td><td>4</td><td>3</td><td>0</td><td>1</td><td>18</td><td>10</td><td>9</td></tr>  
-            <tr><td>3</td><td>العناتيز FC</td><td>4</td><td>2</td><td>1</td><td>1</td><td>16</td><td>11</td><td>7</td></tr>  
-            <tr><td>4</td><td>بشوات البلد</td><td>4</td><td>1</td><td>2</td><td>1</td><td>12</td><td>15</td><td>5</td></tr>  
-            <tr><td>5</td><td>شلاح و اجري</td><td>4</td><td>0</td><td>2</td><td>2</td><td>10</td><td>12</td><td>2</td></tr>  
-            <tr><td>6</td><td>خليها على الله</td><td>4</td><td>0</td><td>0</td><td>4</td><td>3</td><td>14</td><td>0</td></tr>  
-          </tbody>  
-        </table>  
-      </div>  
-  
-      <div class="section-title" data-target="topScorers">🚀 أبرز الهدافين</div>  
-      <div class="content" id="topScorers">  
-        <table>  
-          <thead>  
-            <tr><th>اللاعب</th><th>الأهداف</th></tr>  
-          </thead>  
-          <tbody>  
-            <tr><td>حذيفة</td><td>8</td></tr>  
-            <tr><td>أحمد حازم</td><td>7</td></tr>  
-            <tr><td>علي</td><td>5</td></tr>  
-            <tr><td>فاتح</td><td>4</td></tr>  
-            <tr><td>أحمد سلامة</td><td>3</td></tr>  
-            <tr><td>حمودي</td><td>3</td></tr>  
-            <tr><td>إبراهيم</td><td>3</td></tr>  
-            <tr><td>ياسين</td><td>2</td></tr>  
-            <tr><td>إياد البلوشي</td><td>2</td></tr>  
-            <tr><td>رياض</td><td>2</td></tr>  
-            <tr><td>فراس</td><td>2</td></tr>  
-            <tr><td>نور</td><td>2</td></tr>  
-            <tr><td>إياد</td><td>2</td></tr>  
-            <tr><td>عبد الملك</td><td>1</td></tr>  
-            <tr><td>عمر زيدان</td><td>1</td></tr>  
-            <tr><td>أحمد صلاح</td><td>1</td></tr>  
-            <tr><td>أحمد علي</td><td>1</td></tr>  
-            <tr><td>محمد حازم</td><td>1</td></tr>  
-            <tr><td>محمد خالد</td><td>1</td></tr>  
-            <tr><td>إياد فاضل</td><td>1</td></tr>  
-            <tr><td>يوسف محسن</td><td>1</td></tr>  
-            <tr><td>عبادة</td><td>1</td></tr>  
-            <tr><td>عبد العزيز</td><td>1</td></tr>  
-            <tr><td>عمر</td><td>1</td></tr>  
-          </tbody>  
-        </table>  
-      </div>  
-  
-      <div class="section-title" data-target="individualAwards">🏆 الجوائز الفردية</div>  
-      <div class="content" id="individualAwards">  
-        <ul>  
-          <li><strong>حارس المرمى:</strong> جواد 🇸🇦</li>  
-          <li><strong>الدفاع:</strong> محمد عادل 🇪🇬 🪨، عبد العزيز 🇱🇾 🪨، عمر عادل 🇪🇬 🪨، عبد الملك 🇪🇬 🪨</li>  
-          <li><strong>الوسط:</strong> رياض 🇸🇩 🔥، فاتح 🇸🇩 ⚡️، حذيفه 🇱🇾 🌟</li>  
-          <li><strong>الهجوم:</strong> علي 🇪🇬 🤢، أحمد حازم 🇪🇬 💥، أحمد علي 🇪🇬 👽</li>  
-        </ul>  
-      </div>  
-    </div>  
-  
-    <div class="card register-group" style="cursor:auto;">  
-      <div class="register-label">📝 رابط التسجيل في البطولة</div>  
-      <a class="register-link" href="https://docs.google.com/forms/d/e/1FAIpQLSc0HXkuVvbAwvSXCHcfe2DGlFe4BH6QXpv0nQxJMBwVOJEAag/viewform?usp=sharing" target="_blank" rel="noopener noreferrer">اضغط هنا للتسجيل</a>  
-  
-      <div class="register-label" style="margin-top: 20px;">📱 رابط جروب الواتساب</div>  
-      <a class="register-link" href="https://chat.whatsapp.com/GCsO3fMHuTx8JOEg3eELwy" target="_blank" rel="noopener noreferrer">انضم لجروب الواتساب</a>  
-    </div>  
-  
-    <div class="card">  
-      <a href="#">📅 البطولة الجديدة (قريباً)</a>  
-    </div>  
-  
-    <div class="card">  
-      <a href="#">📅 أرشيف البطولات السابقة</a>  
-    </div>  
-  
-    <div class="card">  
-      <a href="#">📊 الإحصائيات العامة</a>  
-    </div>  
-  </div>  
-  
-  <footer>  
-    &copy; 2025 - جميع الحقوق محفوظة لـ الدورة الرمضانية ⚽  
-  </footer>  
-  
-  <script>  
-    // تفعيل الطي والفتح لكل قسم على حدة عند الضغط على العنوان  
-    document.querySelectorAll('.section-title').forEach(title => {  
-      title.addEventListener('click', () => {  
-        const targetId = title.getAttribute('data-target');  
-        const content = document.getElementById(targetId);  
-        if (content.style.display === 'block') {  
-          content.style.display = 'none';  
-        } else {  
-          content.style.display = 'block';  
-        }  
-      });  
-    });  
-  </script>  
-  
-</body>  
+
+    /* إضافات خاصة للبطولة الجديدة */
+    .team-name {
+      font-weight: bold;
+      font-size: 1.15rem;
+      margin: 12px 0 6px;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+      padding-right: 20px;
+    }
+    .team-name::after {
+      content: '▶️';
+      position: absolute;
+      left: 10px;
+      font-size: 0.9rem;
+      transition: transform 0.3s ease;
+    }
+    .team-name.open::after {
+      transform: rotate(90deg);
+    }
+    .players-list {
+      margin: 5px 0 15px 20px;
+      font-size: 0.95rem;
+      display: none;
+      direction: rtl;
+      text-align: right;
+    }
+    .color-label {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 12px;
+      color: white;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+    .color-white {
+      background-color: #f0f0f0;
+      color: #333;
+      border: 1px solid #ccc;
+    }
+    .color-red {
+      background-color: #d32f2f;
+    }
+    .color-black {
+      background-color: #212121;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎉 أهلاً بكم في موقع البطولة لكرة القدم 🌙</h1>
+
+  <div class="container">
+
+    <!-- البطولات القديمة ... بنفس الكود السابق -->
+
+    <div class="card">
+      <a href="رمضان2025.html">📅 بطولة رمضان 2025</a>
+
+      <div class="section-title" data-target="ranking">📊 ترتيب الفرق النهائي</div>
+      <div class="content" id="ranking">
+        <table>
+          <thead>
+            <tr>
+              <th>الترتيب</th><th>الفريق</th><th>لعب</th><th>فاز</th><th>تعادل</th><th>خسر</th><th>الأهداف المسجلة</th><th>الأهداف المستقبلة</th><th>النقاط</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>عبس</td><td>4</td><td>3</td><td>1</td><td>0</td><td>14</td><td>11</td><td>10</td></tr>
+            <tr><td>2</td><td>الأركان</td><td>4</td><td>3</td><td>0</td><td>1</td><td>18</td><td>10</td><td>9</td></tr>
+            <tr><td>3</td><td>العناتيز FC</td><td>4</td><td>2</td><td>1</td><td>1</td><td>16</td><td>11</td><td>7</td></tr>
+            <tr><td>4</td><td>بشوات البلد</td><td>4</td><td>1</td><td>2</td><td>1</td><td>12</td><td>15</td><td>5</td></tr>
+            <tr><td>5</td><td>شلاح و اجري</td><td>4</td><td>0</td><td>2</td><td>2</td><td>10</td><td>12</td><td>2</td></tr>
+            <tr><td>6</td><td>خليها على الله</td><td>4</td><td>0</td><td>0</td><td>4</td><td>3</td><td>14</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section-title" data-target="topScorers">🚀 أبرز الهدافين</div>
+      <div class="content" id="topScorers">
+        <table>
+          <thead><tr><th>اللاعب</th><th>الأهداف</th></tr></thead>
+          <tbody>
+            <tr><td>حذيفة</td><td>8</td></tr>
+            <tr><td>أحمد حازم</td><td>7</td></tr>
+            <tr><td>علي</td><td>5</td></tr>
+            <tr><td>فاتح</td><td>4</td></tr>
+            <tr><td>أحمد سلامة</td><td>3</td></tr>
+            <tr><td>حمودي</td><td>3</td></tr>
+            <tr><td>إبراهيم</td><td>3</td></tr>
+            <tr><td>ياسين</td><td>2</td></tr>
+            <tr><td>إياد البلوشي</td><td>2</td></tr>
+            <tr><td>رياض</td><td>2</td></tr>
+            <tr><td>فراس</td><td>2</td></tr>
+            <tr><td>نور</td><td>2</td></tr>
+            <tr><td>إياد</td><td>2</td></tr>
+            <tr><td>عبد الملك</td><td>1</td></tr>
+            <tr><td>عمر زيدان</td><td>1</td></tr>
+            <tr><td>أحمد صلاح</td><td>1</td></tr>
+            <tr><td>أحمد علي</td><td>1</td></tr>
+            <tr><td>محمد حازم</td><td>1</td></tr>
+            <tr><td>محمد خالد</td><td>1</td></tr>
+            <tr><td>إياد فاضل</td><td>1</td></tr>
+            <tr><td>يوسف محسن</td><td>1</td></tr>
+            <tr><td>عبادة</td><td>1</td></tr>
+            <tr><td>عبد العزيز</td><td>1</td></tr>
+            <tr><td>عمر</td><td>1</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="section-title" data-target="individualAwards">🏆 الجوائز الفردية</div>
+      <div class="content" id="individualAwards">
+        <ul>
+          <li><strong>حارس المرمى:</strong> جواد 🇸🇦</li>
+          <li><strong>الدفاع:</strong> محمد عادل 🇪🇬 🪨، عبد العزيز 🇱🇾 🪨، عمر عادل 🇪🇬 🪨، عبد الملك 🇪🇬 🪨</li>
+          <li><strong>الوسط:</strong> رياض 🇸🇩 🔥، فاتح 🇸🇩 ⚡️، حذيفه 🇱🇾 🌟</li>
+          <li><strong>الهجوم:</strong> علي 🇪🇬 🤢، أحمد حازم 🇪🇬 💥، أحمد علي 🇪🇬 👽</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- هنا البطوله الجديده -->
+    <div class="card">
+      <div class="section-title" data-target="newTournament">🏆 البطولة الجديدة</div>
+      <div class="content" id="newTournament">
+
+        <div class="team-name" data-target="team1">ريح يبني <span class="color-label color-white">اللون: أبيض</span></div>
+        <ul class="players-list" id="team1">
+          <li>إياد احمد فاضل (الكابتن)</li>
+          <li>عبدالرحمن عبدالمنعم</li>
+          <li>عبدالرحمن الدمنهوجي (الحارس)</li>
+          <li>احمد صبري</li>
+          <li>حمزة</li>
+          <li>زياد محمد</li>
+        </ul>
+
+        <div class="team-name" data-target="team2">الأركان <span class="color-label color-red">اللون: أحمر</span></div>
+        <ul class="players-list" id="team2">
+          <li>اياد</li>
+          <li>عبدالعزيز</li>
+          <li>عباده</li>
+          <li>فاتح</li>
+          <li>رياض</li>
+          <li>نور الدين اسامه</li>
+        </ul>
+
+        <div class="team-name" data-target="team3">فريق صغير بس يحير <span class="color-label color-black">اللون: أسود</span></div>
+        <ul class="players-list" id="team3">
+          <li>يوسف محمد السيد (الكابتن)</li>
+          <li>محمد حازم</li>
+          <li>جواد (الحارس)</li>
+          <li>اياد البلوشي</li>
+          <li>ياسين</li>
+          <li>براء محمود</li>
+          <li>محمد سامح</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- روابط التسجيل والجروبات -->
+    <div class="card register-group" style="cursor:auto;">
+      <div class="register-label">📝 رابط التسجيل في البطولة</div>
+      <a class="register-link" href="https://docs.google.com/forms/d/e/1FAIpQLSc0HXkuVvbAwvSXCHcfe2DGlFe4BH6QXpv0nQxJMBwVOJEAag/viewform?usp=sharing" target="_blank" rel="noopener noreferrer">اضغط هنا للتسجيل</a>
+
+      <div class="register-label" style="margin-top: 20px;">📱 رابط جروب الواتساب</div>
+      <a class="register-link" href="https://chat.whatsapp.com/GCsO3fMHuTx8JOEg3eELwy" target="_blank" rel="noopener noreferrer">انضم لجروب الواتساب</a>
+    </div>
+
+    <div class="card">
+      <a href="#">📅 أرشيف البطولات السابقة</a>
+    </div>
+
+    <div class="card">
+      <a href="#">📊 الإحصائيات العامة</a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 - جميع الحقوق محفوظة لـ البطولة ⚽
+  </footer>
+
+  <script>
+    // تفعيل طي وفرد الاقسام
+    document.querySelectorAll('.section-title').forEach(title => {
+      title.addEventListener('click', () => {
+        const targetId = title.getAttribute('data-target');
+        const content = document.getElementById(targetId);
+
+        title.classList.toggle('open');
+
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+        } else {
+          content.style.display = 'block';
+        }
+      });
+    });
+
+    // تفعيل طي وفرد فرق البطولة الجديدة
+    document.querySelectorAll('.team-name').forEach(team => {
+      team.addEventListener('click', () => {
+        const targetId = team.getAttribute('data-target');
+        const list = document.getElementById(targetId);
+
+        team.classList.toggle('open');
+
+        if (list.style.display === 'block') {
+          list.style.display = 'none';
+        } else {
+          list.style.display = 'block';
+        }
+      });
+    });
+  </script>
+
+</body>
 </html>
