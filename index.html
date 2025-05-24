@@ -184,6 +184,40 @@
     .color-black {
       background-color: #212121;
     }
+    .color-blue {
+      background-color: #1565c0;
+    }
+    
+    /* تنسيقات جديدة لجداول الجولات */
+    .round-title {
+      color: #0d47a1;
+      font-weight: bold;
+      margin: 15px 0 5px;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    .match-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid #eee;
+    }
+    .match-row:last-child {
+      border-bottom: none;
+    }
+    .match-teams {
+      flex-grow: 1;
+      text-align: center;
+    }
+    .match-vs {
+      margin: 0 10px;
+      color: #666;
+    }
+    .round-separator {
+      border-top: 2px solid #0d47a1;
+      margin: 15px 0;
+      opacity: 0.3;
+    }
   </style>
 </head>
 <body>
@@ -191,8 +225,6 @@
   <h1>🎉 أهلاً بكم في موقع البطولة لكرة القدم 🌙</h1>
 
   <div class="container">
-
-    <!-- البطولات القديمة ... بنفس الكود السابق -->
 
     <div class="card">
       <a href="رمضان2025.html">📅 بطولة رمضان 2025</a>
@@ -260,11 +292,12 @@
       </div>
     </div>
 
-    <!-- هنا البطوله الجديده -->
+    <!-- بطولة جديدة مع الفرق المدمجة -->
     <div class="card">
       <div class="section-title" data-target="newTournament">🏆 البطولة الجديدة</div>
       <div class="content" id="newTournament">
 
+        <!-- الفرق الأصلية -->
         <div class="team-name" data-target="team1">ريح يبني <span class="color-label color-white">اللون: أبيض</span></div>
         <ul class="players-list" id="team1">
           <li>إياد احمد فاضل (الكابتن)</li>
@@ -295,6 +328,118 @@
           <li>براء محمود</li>
           <li>محمد سامح</li>
         </ul>
+
+        <!-- الفرق المضافة حديثا -->
+        <div class="team-name" data-target="team4">أنا وشباب على الخصام <span class="color-label color-white">اللون: أبيض</span></div>
+        <ul class="players-list" id="team4">
+          <li>علي عمر (الكابتن)</li>
+          <li>احمد علي</li>
+          <li>احمد صبري (الي برة السكن)</li>
+          <li>كريم إيهاب</li>
+          <li>جواد (الحارس)</li>
+          <li>يوسف (واحد محدش فيكو يعرفوا)</li>
+          <li>عاصم</li>
+          <li>ابيض</li>
+        </ul>
+
+        <div class="team-name" data-target="team5">باشوات البلد برو ماكس <span class="color-label color-black">اللون: أسود</span></div>
+        <ul class="players-list" id="team5">
+          <li>محمد عادل (الكابتن)</li>
+          <li>محمود منصور (الحارس)</li>
+          <li>عمر عادل</li>
+          <li>عمر عطيه</li>
+          <li>صاصا</li>
+          <li>إبراهيم وهبي</li>
+          <li>احمد حازم</li>
+          <li>خالد هاني</li>
+        </ul>
+
+        <div class="team-name" data-target="team6">مصر للمقاصة <span class="color-label color-blue">اللون: أزرق</span></div>
+        <ul class="players-list" id="team6">
+          <li>جابرينهو (الكابتن)</li>
+          <li>يوسف محسن</li>
+          <li>الأفريقي</li>
+          <li>اسامه</li>
+          <li>ياسين</li>
+          <li>مهند</li>
+          <li>شبل</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- بطاقات الجولات المضافة -->
+    <div class="card">
+      <div class="section-title" data-target="tournamentRounds">⚽ جولات البطولة</div>
+      <div class="content" id="tournamentRounds">
+        
+        <!-- الجولة 1 -->
+        <div class="round-title">الجولة 1 (ثابتة)</div>
+        <div class="match-row">
+          <div class="match-teams">باشوات البلد برو ماكس × مصر للمقاصة</div>
+        </div>
+        <div class="match-row">
+          <div class="match-teams">صغير بس يحير × ربح بيقي</div>
+        </div>
+        <div class="match-row">
+          <div class="match-teams">أنا وشباب على الخصام × الأركان</div>
+        </div>
+        
+        <div class="round-separator"></div>
+        
+        <!-- الجولة 2 -->
+        <div class="round-title">الجولة 2 (جديدة)</div>
+        <div class="match-row">
+          <div class="match-teams">ربح بيقي × الأركان</div>
+        </div>
+        <div class="match-row">
+          <div class="match-teams">أنا وشباب على الخصام × باشوات البلد برو ماكس</div>
+        </div>
+        <div class="match-row">
+          <div class="match-teams">صغير بس يحير × مصر للمقاصة</div>
+        </div>
+        
+        <div class="round-separator"></div>
+        
+        <!-- الجولة 3 -->
+        <div class="round-title">الجولة 3 (جديدة)</div>
+        <div class="match-row">
+          <div class="match-teams">مصر للمقاصة × الأركان</div>
+        </div>
+        <div class="match-row">
+          <div class="match-teams">ربح بيقي × باشوات البلد برو ماكس</div>
+        </div>
+        <div class="match-row">
+          <div class="match-teams">صغير بس يحير × أنا وشباب على الخصام</div>
+        </div>
+        
+        <div class="round-separator"></div>
+        
+        <!-- الجولة 4 -->
+        <div class="round-title">الجولة 4 (جديدة)</div>
+        <div class="match-row">
+          <div class="match-teams">الأركان × باشوات البلد برو ماكس</div>
+        </div>
+        <div class="match-row">
+          <div class="match-teams">أنا وشباب على الخصام × ربح بيقي</div>
+        </div>
+        <div class="match-row">
+          <div class="match-teams">ريح يبني × مصر للمقاصة</div>
+        </div>
+        
+        <div class="round-separator"></div>
+        
+        <!-- الجولة 5 -->
+        <div class="round-title">الجولة 5 (جديدة)</div>
+        <div class="match-row">
+          <div class="match-teams">الأركان × ريح يبني</div>
+        </div>
+        <div class="match-row">
+          <div class="match-teams">باشوات البلد برو ماكس × ريح يبني</div>
+        </div>
+        <div class="match-row">
+          <div class="match-teams">مصر للمقاصة × ربح بيقي</div>
+        </div>
+        
       </div>
     </div>
 
